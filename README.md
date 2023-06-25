@@ -40,3 +40,11 @@ intervals[i].length == 2
 
 
 for more details regarding the problem here is the link : https://leetcode.com/problems/merge-intervals/
+
+
+
+
+#Assignment 2 E2E/UI Tests
+
+It is required to take your solution from homework #1, add GUI to it (I recommend as web UI) and cover this solution with e2e/UI tests, using test design techniques and task text, using UI testing tools (libraries, etc) available for your platform. 
+
