@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Interval Merger</title>
+</head>
+<body>
+  <h1>Interval Merger</h1>
+
+  <form id="intervalForm">
+    <p>
+      <label for="numIntervals">Enter the number of intervals:</label>
+      <input id="numIntervals" type="number" min="1" required>
+    </p>
+
+    <div id="intervalInputs">
+      <!-- Interval inputs will be dynamically added here -->
+    </div>
+
+    <button type="submit">Merge Intervals</button>
+  </form>
+
+  <div id="mergedIntervals">
+    <h2>Merged Intervals:</h2>
+    <p id="mergedList"></p>
+  </div>
+
+  <script>
+    // Event listener for form submission
+    document.getElementById("intervalForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Retrieve the number of intervals
+      const numIntervals = parseInt(document.getElementById("numIntervals").value);
+
+      // Retrieve the interval inputs
+      const intervalInputs = document.querySelectorAll("#intervalInputs input");
+
+      // Convert the inputs into intervals
+      const intervals = [];
+      for (let i = 0; i < intervalInputs.length; i += 2) {
+        const start = parseInt(intervalInputs[i].value);
+        const end = parseInt(intervalInputs[i + 1].value);
+        intervals.push([start, end]);
+      }
+
+      // Merge the intervals
+      const mergedIntervals = mergeIntervals(intervals);
+
+      // Display the merged intervals
+      const mergedList = document.getElementById("mergedList");
+      mergedList.innerHTML = ""; // Clear existing list
+
+      for (const interval of mergedIntervals) {
+        const intervalText = document.createElement("span");
+        intervalText.textContent = `[${interval[0]}, ${interval[1]}] `;
+        mergedList.appendChild(intervalText);
+      }
+    });
+
+    // Function to create input fields for intervals dynamically
+    function createIntervalInputs(numIntervals) {
+      const intervalInputs = document.getElementById("intervalInputs");
+      intervalInputs.innerHTML = ""; // Clear existing inputs
+
+      for (let i = 0; i < numIntervals; i++) {
+        const startInput = document.createElement("input");
+        startInput.type = "number";
+        startInput.placeholder = "Start";
+
+        const endInput = document.createElement("input");
+        endInput.type = "number";
+        endInput.placeholder = "End";
+
+        intervalInputs.appendChild(startInput);
+        intervalInputs.appendChild(endInput);
+        intervalInputs.appendChild(document.createElement("br"));
+      }
+    }
+
+    // Function to merge intervals
+    function mergeIntervals(intervals) {
+      // Sort the intervals based on the start value
+      intervals.sort((a, b) => a[0] - b[0]);
+
+      // Create an array to store the merged intervals
+      const merged = [];
+
+      // Iterate through the sorted intervals and merge overlapping intervals
+      for (const interval of intervals) {
+        // If the merged array is empty or the current interval does not overlap with the previous interval, add it to the merged array
+        if (merged.length === 0 || interval[0] > merged[merged.length - 1][1]) {
+          merged.push(interval);
+        }
+        // If the current interval overlaps with the previous interval, merge them by updating the end value
+        else {
+          merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], interval[1]);
+        }
+      }
+
+      // Return the merged intervals
+      return merged;
+    }
+
+    // Event listener for number of intervals input change
+    document.getElementById("numIntervals").addEventListener("change", function(event) {
+      const numIntervals = parseInt(event.target.value);
+      createIntervalInputs(numIntervals);
+    });
+
+    // Initialize the interval inputs based on the initial number of intervals
+    const initialNumIntervals = 2;
+    createIntervalInputs(initialNumIntervals);
+    document.getElementById("numIntervals").value = initialNumIntervals;
+  </script>
+</body>
+</html>
