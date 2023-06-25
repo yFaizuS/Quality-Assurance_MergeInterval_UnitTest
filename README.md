@@ -41,10 +41,18 @@ intervals[i].length == 2
 
 for more details regarding the problem here is the link : https://leetcode.com/problems/merge-intervals/
 
+Here are the links to the documents:
+
+**Solution File : https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Solution.cpp**
+
+**Testing File : https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Unit%20Testing.cpp**
 
 
 
-#Assignment 2 E2E/UI Tests
+
+# Assignment 2 E2E/UI Tests
 
 It is required to take your solution from homework #1, add GUI to it (I recommend as web UI) and cover this solution with e2e/UI tests, using test design techniques and task text, using UI testing tools (libraries, etc) available for your platform. 
+
+**https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_FormTesting.html**
 
