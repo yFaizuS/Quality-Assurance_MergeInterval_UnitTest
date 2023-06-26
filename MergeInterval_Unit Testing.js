@@ -82,6 +82,7 @@ const Solution = require('./MergeIntervalSolution');
 }
 
 // Test Cases Violating Constraints
+// these tests if the function still process inputs that violates the constraints
 // Test Case 8: Empty intervals array
 // This tests that the function's output would be null or error if the input is null
 {
@@ -114,6 +115,7 @@ const Solution = require('./MergeIntervalSolution');
 
 // Test Case 10: Start value and end value exceed the maximum allowed value (10^4)
 // this tests the function if it can merge intervals while it violates the constraints
+// this input represents that the input is at the upper boundary value (10^4), thus it covers a Boundary Value concept
 {
   const solution = new Solution();
   const intervals = [[100000, 100001], [100002, 100003]];
@@ -144,6 +146,7 @@ const Solution = require('./MergeIntervalSolution');
 
 // Test Case 12: Intervals array with invalid interval values (negative numbers)
 // this tests the function if it can merge intervals while it violates the constraints
+// this input represents that the input is at the lower boundary value (start<0), thus it covers a Boundary Value concept
 {
   const solution = new Solution();
   const intervals = [[-1, 2], [3, -4], [-5, -6]];
