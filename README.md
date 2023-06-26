@@ -43,7 +43,7 @@ for more details regarding the problem here is the link : https://leetcode.com/p
 
 Here are the links to the documents:
 
-**Solution File : https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Solution.cpp**
+**Solution File : [https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Solution.cpp](https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeIntervalSolution.js)**
 
 **Testing File : [https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Unit%20Testing.cpp](https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Unit%20Testing.js)**
 
