@@ -62,6 +62,63 @@ the Solution breakdown:
 
 There is problem if the data we input violates the constraints it returns the data back. It crossed my mind if something that violates the constraints is inputted, it still processed the input.
 
+```c++
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Solution {
+public:
+  vector<vector<int>> merge(vector<vector<int>>& intervals) {
+    vector<vector<int>> ans;
+
+    sort(intervals.begin(), intervals.end());
+
+    for (const vector<int>& interval : intervals) {
+      if (ans.empty() || ans.back()[1] < interval[0])
+        ans.push_back(interval);
+      else
+        ans.back()[1] = max(ans.back()[1], interval[1]);
+    }
+
+    return ans;
+  }
+};
+
+int main() {
+  Solution solution;
+
+  int n;
+  cout << "Enter the number of intervals: ";
+  cin >> n;
+
+  vector<vector<int>> intervals(n, vector<int>(2));
+  cout << "Enter the intervals (start end):" << endl;
+  for (int i = 0; i < n; i++) {
+    cin >> intervals[i][0] >> intervals[i][1];
+  }
+
+  vector<vector<int>> merged = solution.merge(intervals);
+
+  cout << "Merged intervals:" << endl;
+  for (const auto& interval : merged) {
+    cout << "[" << interval[0] << ", " << interval[1] << "] ";
+  }
+  cout << endl;
+
+  return 0;
+}
+
+``` 
+the code snippet above is a simple cpp program that accepts input from the user and processed it with the function. 
+
+![Screenshot (296)](https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/assets/89732217/1f122e21-42af-41a3-b1f8-a72f71ac3531)
+
+another bug was also encountered here is the positive set of interval is not shown in the output
+
+to further prove the fact that it processed the input even though it violates the constraints is that -5 is greater than -6 yet still being processed and outputted.
 
 
 
