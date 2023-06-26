@@ -60,6 +60,9 @@ the Solution breakdown:
 5.	If the intervals overlap, the end value of the last interval in **ans** is updated to the maximum of its current end value and the end value of the current interval. This effectively merges the intervals. 
 6.	Finally, the merged intervals are returned in **ans**.
 
+There is problem if the data we input violates the constraints it returns the data back. It crossed my mind if something that violates the constraints is inputted, it still processed the input.
+
+
 
 
 
