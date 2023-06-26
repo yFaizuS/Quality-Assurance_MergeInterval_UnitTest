@@ -45,7 +45,21 @@ Here are the links to the documents:
 
 **Solution File : https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Solution.cpp**
 
-**Testing File : https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Unit%20Testing.cpp**
+**Testing File : [https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Unit%20Testing.cpp](https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Unit%20Testing.js)**
+
+
+# Bug report
+
+The provided solution appears to be correct and free of bugs. It follows the typical approach to solving the problem of merging overlapping intervals.
+the Solution breakdown:
+
+1.	It starts by sorting the intervals based on their start values using **sort(intervals.begin(), intervals.end()).** This ensures that overlapping intervals are grouped together. 
+2.	It initializes an empty vector **ans** to store the merged intervals. 
+3.	It iterates over each interval in the sorted array.
+4.	If **ans** is empty or the end value of the last interval in **ans** is less than the start value of the current interval, it means the intervals do not overlap. In this case, the current interval is added to **ans**. 
+5.	If the intervals overlap, the end value of the last interval in **ans** is updated to the maximum of its current end value and the end value of the current interval. This effectively merges the intervals. 
+6.	Finally, the merged intervals are returned in **ans**.
+
 
 
 
