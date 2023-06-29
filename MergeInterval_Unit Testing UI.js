@@ -3,11 +3,11 @@ const { document } = new JSDOM().window;
 
 // Load the HTML file
 const fs = require('fs');
-const html = fs.readFileSync('path/to/your/html/file.html', 'utf8');
+const html = fs.readFileSync('./MergeInterval_FormTesting.html', 'utf8');
 document.body.innerHTML = html;
 
 // Include any necessary functions or modules
-const { mergeIntervals } = require('./path/to/your/mergeIntervalsModule');
+const { mergeIntervals } = require('./MergeIntervalSolution');
 
 // Perform UI tests using Jest
 // Test Case 1: Test the form submission and merging of intervals
