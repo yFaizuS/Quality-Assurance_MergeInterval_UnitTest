@@ -128,5 +128,88 @@ to further prove the fact that it processed the input even though it violates th
 
 It is required to take your solution from homework #1, add GUI to it (I recommend as web UI) and cover this solution with e2e/UI tests, using test design techniques and task text, using UI testing tools (libraries, etc) available for your platform. 
 
+HTML file :
 **https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_FormTesting.html**
+E2E Test File : **https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/Mergeinterval_Unit%20Testing%20E2E.js**
+UI Test File : **https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/blob/main/MergeInterval_Unit%20Testing%20UI.js**
+
+
+## E2E Test
+
+here is my code regarding the E2E test, below is the code:
+
+```javascript
+
+const Solution = require('./MergeIntervalSolution');
+const assert = require('assert');
+
+// Simulated user inputs
+const userInputs = [
+  [[1, 3], [2, 6], [8, 10], [15, 18]], // Test Case 1: Input intervals
+  [[1, 4], [4, 5]], // Test Case 2: Input intervals
+  [[1, 2], [3, 4], [5, 6]], // Test Case 3: Input intervals
+  [[1, 4], [2, 5], [6, 8]], // Test Case 4: Input intervals
+  [[1, 2], [2, 3], [3, 4], [4, 5]], // Test Case 5: Input intervals
+  [[1, 3], [4, 6], [8, 10], [15, 18]], // Test Case 6: Input intervals
+  [[1, 2], [2, 3], [3, 4], [5, 6]], // Test Case 7: Input intervals
+  [], // Test Case 8: Empty intervals array
+  [[2, 1], [4, 3]], // Test Case 9: Start value greater than end value
+  [[100000, 100001], [100002, 100003]], // Test Case 10: Start value and end value exceed the maximum allowed value (10^4)
+  Array.from({ length: 105 }, (_, i) => [i, i + 1]), // Test Case 11: Intervals array with maximum allowed length (104)
+  [[-1, 2], [3, -4], [-5, -6]], // Test Case 12: Intervals array with invalid interval values (negative numbers)
+];
+
+// Expected outputs for the given inputs
+const expectedOutputs = [
+  [[1, 6], [8, 10], [15, 18]], // Test Case 1: Expected output
+  [[1, 5]], // Test Case 2: Expected output
+  [[1, 2], [3, 4], [5, 6]], // Test Case 3: Expected output
+  [[1, 5], [6, 8]], // Test Case 4: Expected output
+  [[1, 5]], // Test Case 5: Expected output
+  [[1, 3], [4, 6], [8, 10], [15, 18]], // Test Case 6: Expected output
+  [[1, 4], [5, 6]], // Test Case 7: Expected output
+  [], // Test Case 8: Expected output
+  [], // Test Case 9: Expected output
+  [], // Test Case 10: Expected output
+  [], // Test Case 11: Expected output
+  [], // Test Case 12: Expected output
+];
+
+// Simulate the E2E test scenario
+console.log('Starting E2E test...');
+
+// Initialize the solution class
+const solution = new Solution();
+
+// Process user inputs and validate outputs
+for (let i = 0; i < userInputs.length; i++) {
+  console.log(`Executing Test Case ${i + 1}`);
+
+  // Simulate user input
+  const intervals = userInputs[i];
+
+  // Execute the function
+  const merged = solution.merge(intervals);
+
+  // Validate the output
+  const expected = expectedOutputs[i];
+  assert.deepStrictEqual(merged, expected);
+  console.log(`Test Case ${i + 1} Passed\n`);
+}
+
+console.log('All test cases executed successfully.');
+```
+
+
+In this code, the `userInputs` array simulates the input data that a user might provide. Each element in the `userInputs` array represents a test case, where each test case consists of an input array of intervals.
+
+The `expectedOutputs` array represents the expected output for each corresponding test case in the `userInputs` array.
+
+The code then iterates through each test case, executes the `merge` function of the `Solution class` with the given intervals, and compares the output with the expected output using `assert.deepStrictEqual().`
+
+The test cases cover different scenarios, including valid intervals, edge cases, and constraints. The code provides appropriate comments to indicate the purpose of each test case.
+
+Therefore, this code can be considered an E2E test as it covers the end-to-end functionality of the `merge` function by simulating user inputs, executing the function, and validating the output against the expected results.
+
+
 
