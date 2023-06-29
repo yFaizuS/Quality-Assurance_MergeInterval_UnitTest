@@ -9,7 +9,7 @@ document.body.innerHTML = html;
 // Include any necessary functions or modules
 const { mergeIntervals } = require('./MergeIntervalSolution');
 
-// Perform UI tests using Jest
+// Perform UI tests using Jest Framework
 // Test Case 1: Test the form submission and merging of intervals
 test('Form submission and merging of intervals', () => {
   // Simulate user input
