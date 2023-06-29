@@ -159,3 +159,79 @@ const Solution = require('./MergeIntervalSolution');
     console.log('Test Case 12 Failed:', error.message);
   }
 }
+// Equivalence Partitioning
+
+// Test Case 13: Overlapping intervals with different values within the same equivalence partition
+{
+  const solution = new Solution();
+  const intervals = [[1, 3], [2, 4], [3, 5]];
+  const merged = solution.merge(intervals);
+  const expected = [[1, 5]];
+  assert.deepStrictEqual(merged, expected);
+  console.log('Test Case 13 Passed');
+}
+
+// Test Case 14: Non-overlapping intervals within the same equivalence partition
+{
+  const solution = new Solution();
+  const intervals = [[1, 2], [3, 4], [5, 6]];
+  const merged = solution.merge(intervals);
+  const expected = [[1, 2], [3, 4], [5, 6]];
+  assert.deepStrictEqual(merged, expected);
+  console.log('Test Case 14 Passed');
+}
+
+// Test Case 15: Empty intervals array
+{
+  const solution = new Solution();
+  const intervals = [];
+  const merged = solution.merge(intervals);
+  const expected = [];
+  assert.deepStrictEqual(merged, expected);
+  console.log('Test Case 15 Passed');
+}
+
+// Boundary Value Analysis
+
+// Test Case 16: Maximum allowed number of intervals
+{
+  const solution = new Solution();
+  const intervals = Array.from({ length: 10000 }, (_, i) => [i, i + 1]);
+  const merged = solution.merge(intervals);
+  const expected = []; 
+  try {
+    assert.deepStrictEqual(merged, expected);
+    console.log('Test Case 16 Passed');
+  } catch (error) {
+    console.log('Test Case 16 Failed:', error.message);
+  }
+}
+
+// Test Case 17: Intervals with maximum allowed start and end values
+{
+  const solution = new Solution();
+  const intervals = [[9999, 10000], [10000, 10001]];
+  const merged = solution.merge(intervals);
+  const expected = []; 
+  try {
+    assert.deepStrictEqual(merged, expected);
+    console.log('Test Case 17 Passed');
+  } catch (error) {
+    console.log('Test Case 17 Failed:', error.message);
+  }
+}
+
+// Test Case 18: Intervals with negative start and end values
+{
+  const solution = new Solution();
+  const intervals = [[-2, -1], [-3, -4], [-5, -6]];
+  const merged = solution.merge(intervals);
+  const expected = []; 
+  try {
+    assert.deepStrictEqual(merged, expected);
+    console.log('Test Case 18 Passed');
+  } catch (error) {
+    console.log('Test Case 18 Failed:', error.message);
+  }
+}
+
