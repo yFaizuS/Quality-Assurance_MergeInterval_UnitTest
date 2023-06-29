@@ -146,7 +146,6 @@ const Solution = require('./MergeIntervalSolution');
 
 // Test Case 12: Intervals array with invalid interval values (negative numbers)
 // this tests the function if it can merge intervals while it violates the constraints
-// this input represents that the input is at the lower boundary value (start<0), thus it covers a Boundary Value concept
 {
   const solution = new Solution();
   const intervals = [[-1, 2], [3, -4], [-5, -6]];
