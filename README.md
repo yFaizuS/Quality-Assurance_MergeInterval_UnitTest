@@ -211,7 +211,7 @@ The test cases cover different scenarios, including valid intervals, edge cases,
 
 Therefore, this code can be considered an E2E test as it covers the end-to-end functionality of the `merge` function by simulating user inputs, executing the function, and validating the output against the expected results.
 
-##UI Test
+## UI Test
 
 here is my code on the UI test, below is the code:
 ```javascript
