@@ -211,5 +211,53 @@ The test cases cover different scenarios, including valid intervals, edge cases,
 
 Therefore, this code can be considered an E2E test as it covers the end-to-end functionality of the `merge` function by simulating user inputs, executing the function, and validating the output against the expected results.
 
+##UI Test
 
+here is my code on the UI test, below is the code:
+```javascript
+const { JSDOM } = require('jsdom');
+const { document } = new JSDOM().window;
+
+// Load the HTML file
+const fs = require('fs');
+const html = fs.readFileSync('./MergeInterval_FormTesting.html', 'utf8');
+document.body.innerHTML = html;
+
+// Include any necessary functions or modules
+const { mergeIntervals } = require('./MergeIntervalSolution');
+
+// Perform UI tests using Jest
+// Test Case 1: Test the form submission and merging of intervals
+test('Form submission and merging of intervals', () => {
+  // Simulate user input
+  const numIntervalsInput = document.getElementById('numIntervals');
+  numIntervalsInput.value = '3';
+
+  const intervalInputs = document.querySelectorAll('#intervalInputs input');
+  intervalInputs[0].value = '1';
+  intervalInputs[1].value = '3';
+  intervalInputs[2].value = '2';
+  intervalInputs[3].value = '6';
+  intervalInputs[4].value = '8';
+  intervalInputs[5].value = '10';
+
+  // Trigger form submission
+  const form = document.getElementById('intervalForm');
+  form.dispatchEvent(new Event('submit'));
+
+  // Get the merged intervals from the UI
+  const mergedList = document.getElementById('mergedList').textContent;
+  const merged = JSON.parse(`[${mergedList}]`);
+
+  // Define the expected result
+  const expected = [[1, 6], [8, 10]];
+
+  // Compare the actual and expected results
+  expect(merged).toEqual(expected);
+});
+
+
+```
+
+This code is a UI test, it simulates user interaction with the HTML form and verifies the expected behavior of the user interface. It sets values for input fields, triggers a form submission event, and then checks if the resulting merged intervals displayed in the UI match the expected values. The test ensures that the UI components (form, input fields, merged intervals display) are functioning correctly and producing the desired output based on user actions.
 
