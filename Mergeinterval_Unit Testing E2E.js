@@ -1,7 +1,7 @@
 const Solution = require('./MergeIntervalSolution');
 const assert = require('assert');
 
-// Simulated user inputs
+// User Inputs
 const userInputs = [
   [[1, 3], [2, 6], [8, 10], [15, 18]], // Test Case 1: Input intervals
   [[1, 4], [4, 5]], // Test Case 2: Input intervals

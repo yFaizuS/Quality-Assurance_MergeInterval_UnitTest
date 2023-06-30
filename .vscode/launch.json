@@ -19,7 +19,7 @@
             "cwd": "c:\\Users\\LEGION\\OneDrive\\Documents\\Project front End\\Quality-Assurance_MergeInterval_UnitTest",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
-            "disableOptimisticBPs": true,
+           
             "program": "c:\\Users\\LEGION\\OneDrive\\Documents\\Project front End\\Quality-Assurance_MergeInterval_UnitTest\\node_modules\\jest\\bin\\jest.js"
         }
     ]
