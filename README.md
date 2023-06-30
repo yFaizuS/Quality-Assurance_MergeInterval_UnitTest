@@ -211,6 +211,15 @@ The test cases cover different scenarios, including valid intervals, edge cases,
 
 Therefore, this code can be considered an E2E test as it covers the end-to-end functionality of the `merge` function by simulating user inputs, executing the function, and validating the output against the expected results.
 
+
+Screenshot of the result :
+
+![Screenshot (302)](https://github.com/yFaizuS/Quality-Assurance_MergeInterval_UnitTest/assets/89732217/fcba4766-d0bc-487d-b973-ad4ef59d49b5)
+
+it shows that the invalid test cases are still being processed by the solution, confirming the Bug
+
+
+
 ## UI Test
 
 here is my code on the UI test, below is the code:
