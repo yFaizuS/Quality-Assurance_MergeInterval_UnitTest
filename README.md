@@ -260,4 +260,21 @@ test('Form submission and merging of intervals', () => {
 ```
 
 This code is a UI test, it simulates user interaction with the HTML form and verifies the expected behavior of the user interface. It sets values for input fields, triggers a form submission event, and then checks if the resulting merged intervals displayed in the UI match the expected values. The test ensures that the UI components (form, input fields, merged intervals display) are functioning correctly and producing the desired output based on user actions.
+The provided UI test focuses on a single test case:
 
+Test Case 1: Form submission and merging of intervals
+
+-The test simulates user input by setting values for the **numIntervals** input field and individual interval inputs.
+
+-It triggers the submission of the form by simulating a **submit** event on the intervalForm element.
+
+-The test retrieves the merged intervals from the UI by accessing the content of the **mergedList** element.
+
+-The retrieved merged intervals are parsed into an array format.
+
+-An expected result is defined, which represents the expected merged intervals: **[[1, 6], [8, 10]]**.
+
+-The test compares the actual merged intervals with the expected result using Jest's **expect** function.
+
+
+In summary, this test case verifies that the form submission and interval merging functionality work correctly. It ensures that the user inputs are processed accurately, the intervals are merged as expected, and the resulting merged intervals are correctly displayed in the UI.
